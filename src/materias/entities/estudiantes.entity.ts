@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { MateriaEntity } from "./materia.entity";
 
 @Entity('Estudiantes')
 export class EstudiantesEntity {
@@ -19,5 +20,10 @@ export class EstudiantesEntity {
 
     @Column('numeric')
     edad: number
+
+    //RELACION
+    
+    @ManyToMany(() => MateriaEntity, (materia) => materia.estudiante)
+                    materia:MateriaEntity
 
 }

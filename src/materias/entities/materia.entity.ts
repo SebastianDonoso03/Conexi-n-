@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { EstudiantesEntity } from "./estudiantes.entity";
 
 @Entity('Materia')
 export class MateriaEntity {
@@ -19,5 +20,9 @@ export class MateriaEntity {
 
     @Column('varchar', {nullable:true})
     jornada: string
+    
+    //RELACION
 
+    @ManyToMany(() => EstudiantesEntity, (estudiante) => estudiante.materia)
+                    estudiante:EstudiantesEntity
 }
