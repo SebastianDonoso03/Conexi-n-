@@ -1,5 +1,6 @@
-import { Column, Entity, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { EstudiantesEntity } from "./estudiantes.entity";
+import { Laboratorio } from "./laboratorio.entity";
 
 @Entity('Materia')
 export class MateriaEntity {
@@ -23,6 +24,10 @@ export class MateriaEntity {
     
     //RELACION
 
-    @ManyToMany(() => EstudiantesEntity, (estudiante) => estudiante.materia)
-                    estudiante:EstudiantesEntity
+    @ManyToOne(
+        ()=>Laboratorio,
+        (laboratorio)=>laboratorio.materia
+    )
+    laboratorio:Laboratorio[]
+   
 }

@@ -1,4 +1,4 @@
-import { IsNumber, IsOptional, IsString } from "class-validator";
+import { IsArray, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateMateriaDto {
 
@@ -17,4 +17,9 @@ export class CreateMateriaDto {
 
     @IsOptional()
     jornada: string
+
+    @IsOptional()
+    @IsArray()
+    @IsString({each: true})
+    laboratorio: string[];
 }

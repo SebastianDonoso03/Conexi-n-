@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { MateriaEntity } from "./materia.entity";
 
 @Entity('Estudiantes')
@@ -22,8 +22,5 @@ export class EstudiantesEntity {
     edad: number
 
     //RELACION
-    
-    @ManyToMany(() => MateriaEntity, (materia) => materia.estudiante)
-                    materia:MateriaEntity
 
 }
